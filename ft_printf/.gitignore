@@ -1,0 +1,13 @@
+libft/*.out
+
+printfTester
+
+*.idea
+
+.DS_store
+
+*.txt
+
+*.out
+
+cmake-build-debug
