@@ -7,18 +7,38 @@ typedef struct s_stack
 	int	*b;
 } t_stack;
 
-/*void *pb()
+void pb(int argc, t_stack *stack)
 {
-	while ()
+	//そもそも要素が１、０の場合はこの条件に入らないようにする
+	/*if ()*/
+	size_t	n;
+	size_t	m;
+
+	n = 0;
+	while (n < (size_t)argc - 1)
+	{
+		stack->b[n + 1] = stack->b[n];
+		n++;
+	}
+	stack->b[0] = stack->a[0];
+	m = 0;
+	while (m < (size_t)argc - 1 || n + m < (size_t)argc - 1)
+	{
+		stack->a[m] = stack->a[m + 1];
+		m++;
+	}
 	return ;
-}*/
+}
 
 void	init_argv(int argc, char **argv, t_stack *stack)
 {
 	size_t	n;
 
 	stack->a = (int *) malloc(sizeof(int) * argc - 1);
-	if (stack.a == NULL)
+	if (stack->a == NULL)
+		return ;
+	stack->b = (int *) malloc(sizeof(int) * argc - 1);
+	if (stack->b == NULL)
 		return ;
 	n = 0;
 	while (argc - 1)
@@ -27,6 +47,7 @@ void	init_argv(int argc, char **argv, t_stack *stack)
 		n++;
 		argc--;
 	}
+	return ;
 }
 
 void	set_start(t_stack *stack)
@@ -42,12 +63,12 @@ int	main(int argc, char **argv)
 
 	set_start(&stack);
 	init_argv(argc, argv, &stack);
-//	pb();
+	pb(argc, &stack);
 	n = 0;
 	while (--argc)
 	{
-		ft_printf("%d\n", stack.a[n]);
-		printf("n : %zu\n", n);
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+//		printf("n : %zu\n", n);
 		n++;
 	}
 	free(stack.a);
