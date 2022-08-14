@@ -36,6 +36,32 @@ void pb(t_stack *stack)
 	return ;
 }
 
+void pa(t_stack *stack)
+{
+	//そもそも要素が１、０の場合はこの条件に入らないようにする
+	/*if ()*/
+	size_t	n;
+	size_t	m;
+
+	n = 0;
+	while (n < (size_t)stack->args && n < (size_t)stack->count_a)
+	{
+		stack->a[n + 1] = stack->a[n];
+		n++;
+	}
+	stack->a[0] = stack->b[0];
+	m = 0;
+	while (m < (size_t)stack->args && m < (size_t)stack->count_b)
+	{
+		stack->b[m] = stack->b[m + 1];
+		m++;
+	}
+	stack->count_a++;
+	stack->count_b--;
+	ft_printf("pa\n");
+	return ;
+}
+
 void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
