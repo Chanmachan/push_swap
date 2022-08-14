@@ -2,11 +2,11 @@
 
 void	pa(t_stack *stack)
 {
-	//そもそも要素が１、０の場合はこの条件に入らないようにする
-	/*if ()*/
 	size_t	n;
 	size_t	m;
 
+	if (stack->count_b == 0)
+		return;
 	n = (size_t)stack->count_a;
 	while (n--)
 	{
@@ -27,12 +27,11 @@ void	pa(t_stack *stack)
 
 void	pb(t_stack *stack)
 {
-	//そもそも要素が１、０の場合はこの条件に入らないようにする
-	/*if ()*/
 	size_t	n;
 	size_t	m;
 
-	n = 0;
+	if (stack->count_a == 0)
+		return;
 	n = (size_t)stack->count_b;
 	while (n--)
 	{
