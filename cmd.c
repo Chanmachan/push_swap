@@ -200,6 +200,31 @@ void	rrb(t_stack *stack)
 	return ;
 }
 
+void	rrr(t_stack *stack)
+{
+	int		tmp;
+	size_t	count;
+
+	//rra
+	count = stack->count_a;
+	tmp = stack->a[stack->count_a - 1];
+	while (--count)
+	{
+		stack->a[count] = stack->a[count - 1];
+	}
+	stack->a[0] = tmp;
+	//rrb
+	count = stack->count_b;
+	tmp = stack->b[stack->count_b - 1];
+	while (--count)
+	{
+		stack->b[count] = stack->b[count - 1];
+	}
+	stack->b[0] = tmp;
+	ft_printf("rrr\n");
+	return ;
+}
+
 void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
@@ -363,6 +388,15 @@ int	main(int argc, char **argv)
 	}
 	printf("-----------\n");
 	rrb(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	rrr(&stack);
 	n = 0;
 	tmp = argc;
 	while (--tmp)
