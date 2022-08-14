@@ -16,5 +16,7 @@ typedef struct s_stack
 void	ra(t_stack *stack);
 void	rb(t_stack *stack);
 void	rr(t_stack *stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
 
 #endif
