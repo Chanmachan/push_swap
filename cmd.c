@@ -61,6 +61,17 @@ void pa(t_stack *stack)
 	return ;
 }
 
+void	sa(t_stack *stack)
+{
+	int	tmp;
+
+	tmp = stack->a[0];
+	stack->a[0] = stack->a[1];
+	stack->a[1] = tmp;
+	ft_printf("sa\n");
+	return ;
+}
+
 void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
@@ -136,7 +147,16 @@ int	main(int argc, char **argv)
 	pa(&stack);
 	n = 0;
 	tmp = argc;
-	while (--argc)
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	sa(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
 		n++;
