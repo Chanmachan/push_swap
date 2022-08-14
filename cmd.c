@@ -3,11 +3,14 @@
 
 typedef struct s_stack
 {
+	int args;
 	int	*a;
 	int	*b;
+	int count_a;
+	int count_b;
 } t_stack;
 
-void pb(int argc, t_stack *stack)
+void pb(t_stack *stack)
 {
 	//そもそも要素が１、０の場合はこの条件に入らないようにする
 	/*if ()*/
@@ -15,55 +18,90 @@ void pb(int argc, t_stack *stack)
 	size_t	m;
 
 	n = 0;
-	while (n < (size_t)argc - 1)
+	while (n < (size_t)stack->args && n < (size_t)stack->count_b)
 	{
 		stack->b[n + 1] = stack->b[n];
+		printf("piyo\n");
 		n++;
 	}
+	printf("hoge\n");
 	stack->b[0] = stack->a[0];
 	m = 0;
-	while (m < (size_t)argc - 1 || n + m < (size_t)argc - 1)
+	while (m < (size_t)stack->args && m < (size_t)stack->count_a)
 	{
 		stack->a[m] = stack->a[m + 1];
 		m++;
 	}
+	stack->count_a--;
+	stack->count_b++;
 	return ;
 }
 
-void	init_argv(int argc, char **argv, t_stack *stack)
+void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
+	size_t	count;
 
-	stack->a = (int *) malloc(sizeof(int) * argc - 1);
+	stack->a = (int *) malloc(sizeof(int) * stack->args);
 	if (stack->a == NULL)
+	{
+		printf("malloc error\n");
 		return ;
-	stack->b = (int *) malloc(sizeof(int) * argc - 1);
+	}
+	stack->b = (int *) malloc(sizeof(int) * stack->args);
 	if (stack->b == NULL)
+	{
+		printf("malloc error\n");
 		return ;
+	}
 	n = 0;
-	while (argc - 1)
+	count = stack->args;
+	while (count)
 	{
 		stack->a[n] = ft_atoi(argv[n + 1]);
 		n++;
-		argc--;
+		count--;
 	}
 	return ;
 }
 
-void	set_start(t_stack *stack)
+void	set_start(t_stack *stack, int argc)
 {
+	stack->args = argc - 1;
 	stack->a = NULL;
 	stack->b = NULL;
+	stack->count_a = argc - 1;
+	stack->count_b = 0;
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
 	size_t	n;
+	size_t	tmp;
 
-	set_start(&stack);
-	init_argv(argc, argv, &stack);
-	pb(argc, &stack);
+	tmp = argc;
+	set_start(&stack, argc);
+	init_argv(argv, &stack);
+	n = 0;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+//		printf("n : %zu\n", n);
+		n++;
+	}
+	printf("-----------\n");
+	pb(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+//		printf("n : %zu\n", n);
+		n++;
+	}
+	printf("-----------\n");
+	pb(&stack);
 	n = 0;
 	while (--argc)
 	{
@@ -72,5 +110,7 @@ int	main(int argc, char **argv)
 		n++;
 	}
 	free(stack.a);
+	free(stack.b);
+//	system("leaks -q a.out");
 	return (0);
 }
