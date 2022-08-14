@@ -18,10 +18,10 @@ void pb(t_stack *stack)
 	size_t	m;
 
 	n = 0;
-	while (n < (size_t)stack->args && n < (size_t)stack->count_b)
+	n = (size_t)stack->count_b;
+	while (n--)
 	{
 		stack->b[n + 1] = stack->b[n];
-		n++;
 	}
 	stack->b[0] = stack->a[0];
 	m = 0;
@@ -43,7 +43,6 @@ void pa(t_stack *stack)
 	size_t	n;
 	size_t	m;
 
-	n = 0;
 	n = (size_t)stack->count_a;
 	while (n--)
 	{
@@ -113,7 +112,6 @@ int	main(int argc, char **argv)
 	while (--tmp)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
-//		printf("n : %zu\n", n);
 		n++;
 	}
 	printf("-----------\n");
@@ -123,7 +121,6 @@ int	main(int argc, char **argv)
 	while (--tmp)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
-//		printf("n : %zu\n", n);
 		n++;
 	}
 	printf("-----------\n");
@@ -133,7 +130,6 @@ int	main(int argc, char **argv)
 	while (--tmp)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
-//		printf("n : %zu\n", n);
 		n++;
 	}
 	printf("-----------\n");
@@ -143,7 +139,6 @@ int	main(int argc, char **argv)
 	while (--argc)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
-//		printf("n : %zu\n", n);
 		n++;
 	}
 	printf("-----------\n");
