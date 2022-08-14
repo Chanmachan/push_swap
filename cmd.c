@@ -65,6 +65,8 @@ void	sa(t_stack *stack)
 {
 	int	tmp;
 
+	if (stack->count_a == 1)
+		return ;
 	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = tmp;
@@ -76,6 +78,8 @@ void	sb(t_stack *stack)
 {
 	int	tmp;
 
+	if (stack->count_b == 1)
+		return ;
 	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
@@ -94,6 +98,74 @@ void	ss(t_stack *stack)
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
 	ft_printf("ss\n");
+}
+
+void	ra(t_stack *stack)
+{
+	int		tmp;
+	size_t	count;
+	size_t	n;
+
+	count = stack->count_a;
+	tmp = stack->a[0];
+	n = 0;
+	while (count--)
+	{
+		stack->a[n] = stack->a[n + 1];
+		n++;
+	}
+	stack->a[stack->count_a - 1] = tmp;
+	ft_printf("ra\n");
+	return ;
+}
+
+void	rb(t_stack *stack)
+{
+	int		tmp;
+	size_t	count;
+	size_t	n;
+
+	count = stack->count_b;
+	tmp = stack->b[0];
+	n = 0;
+	while (count--)
+	{
+		stack->b[n] = stack->b[n + 1];
+		n++;
+	}
+	stack->b[stack->count_b - 1] = tmp;
+	ft_printf("rb\n");
+	return ;
+}
+
+void	rr(t_stack *stack)
+{
+	int		tmp;
+	size_t	count;
+	size_t	n;
+
+	//ra
+	count = stack->count_a;
+	tmp = stack->a[0];
+	n = 0;
+	while (count--)
+	{
+		stack->a[n] = stack->a[n + 1];
+		n++;
+	}
+	stack->a[stack->count_a - 1] = tmp;
+	//rb
+	count = stack->count_b;
+	tmp = stack->b[0];
+	n = 0;
+	while (count--)
+	{
+		stack->b[n] = stack->b[n + 1];
+		n++;
+	}
+	stack->b[stack->count_b - 1] = tmp;
+	ft_printf("rr\n");
+	return ;
 }
 
 void	init_argv(char **argv, t_stack *stack)
@@ -205,6 +277,42 @@ int	main(int argc, char **argv)
 	}
 	printf("-----------\n");
 	ss(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	ra(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	pb(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	rb(&stack);
+	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+	printf("-----------\n");
+	rr(&stack);
 	n = 0;
 	tmp = argc;
 	while (--tmp)
