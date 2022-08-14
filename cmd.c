@@ -21,10 +21,8 @@ void pb(t_stack *stack)
 	while (n < (size_t)stack->args && n < (size_t)stack->count_b)
 	{
 		stack->b[n + 1] = stack->b[n];
-		printf("piyo\n");
 		n++;
 	}
-	printf("hoge\n");
 	stack->b[0] = stack->a[0];
 	m = 0;
 	while (m < (size_t)stack->args && m < (size_t)stack->count_a)
@@ -34,6 +32,7 @@ void pb(t_stack *stack)
 	}
 	stack->count_a--;
 	stack->count_b++;
+	ft_printf("pb\n");
 	return ;
 }
 
@@ -84,6 +83,7 @@ int	main(int argc, char **argv)
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	n = 0;
+	printf("***start***\n");
 	while (--tmp)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
