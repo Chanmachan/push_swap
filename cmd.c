@@ -44,10 +44,10 @@ void pa(t_stack *stack)
 	size_t	m;
 
 	n = 0;
-	while (n < (size_t)stack->args && n < (size_t)stack->count_a)
+	n = (size_t)stack->count_a;
+	while (n--)
 	{
 		stack->a[n + 1] = stack->a[n];
-		n++;
 	}
 	stack->a[0] = stack->b[0];
 	m = 0;
@@ -129,12 +129,24 @@ int	main(int argc, char **argv)
 	printf("-----------\n");
 	pb(&stack);
 	n = 0;
+	tmp = argc;
+	while (--tmp)
+	{
+		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
+//		printf("n : %zu\n", n);
+		n++;
+	}
+	printf("-----------\n");
+	pa(&stack);
+	n = 0;
+	tmp = argc;
 	while (--argc)
 	{
 		ft_printf("%d | %d\n", stack.a[n], stack.b[n]);
 //		printf("n : %zu\n", n);
 		n++;
 	}
+	printf("-----------\n");
 	free(stack.a);
 	free(stack.b);
 //	system("leaks -q a.out");
