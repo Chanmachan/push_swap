@@ -1,21 +1,33 @@
 #include "push_swap.h"
 
-static void	init_argv(char **argv, t_stack *stack)
+static void	all_malloc(t_stack *stack)
 {
-	size_t	n;
-	size_t	count;
-
 	stack->a = ft_calloc(stack->args, sizeof(t_stack));
 	if (stack->a == NULL)
 		return ;
 	stack->b = ft_calloc(stack->args, sizeof(t_stack));
 	if (stack->b == NULL)
 		return ;
+	stack->bit_a = ft_calloc(stack->args, sizeof(t_stack));
+	if (stack->a == NULL)
+		return ;
+	stack->bit_b = ft_calloc(stack->args, sizeof(t_stack));
+	if (stack->b == NULL)
+		return ;
+}
+
+static void	init_argv(char **argv, t_stack *stack)
+{
+	size_t	n;
+	size_t	count;
+
+	all_malloc(stack);
 	n = 0;
 	count = stack->args;
 	while (count)
 	{
 		stack->a[n] = ft_atoi(argv[n + 1]);
+		stack->bit_a[n] = ft_atoi(argv[n + 1]);
 		n++;
 		count--;
 	}
@@ -27,6 +39,8 @@ static void	set_start(t_stack *stack, int argc)
 	stack->args = argc - 1;
 	stack->a = NULL;
 	stack->b = NULL;
+	stack->bit_a = NULL;
+	stack->bit_b = NULL;
 	stack->count_a = argc - 1;
 	stack->count_b = 0;
 }
