@@ -5,6 +5,8 @@ static void	reverse_rotate_a(t_stack *stack)
 	int		tmp;
 	size_t	count;
 
+	if (stack->count_a < 2)
+		return;
 	count = stack->count_a;
 	tmp = stack->a[stack->count_a - 1];
 	while (--count)
@@ -19,6 +21,8 @@ static void	reverse_rotate_b(t_stack *stack)
 	int		tmp;
 	size_t	count;
 
+	if (stack->count_b < 2)
+		return;
 	count = stack->count_b;
 	tmp = stack->b[stack->count_b - 1];
 	while (--count)

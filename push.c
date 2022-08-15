@@ -14,13 +14,14 @@ void	pa(t_stack *stack)
 	}
 	stack->a[0] = stack->b[0];
 	m = 0;
-	while (m < (size_t)stack->args && m < (size_t)stack->count_b)
+	while (m < (size_t)stack->count_b)
 	{
 		stack->b[m] = stack->b[m + 1];
 		m++;
 	}
 	stack->count_a++;
 	stack->count_b--;
+	ft_printf("b[m] %d\n", stack->b[m]);
 	ft_printf("pa\n");
 	return ;
 }
@@ -39,9 +40,10 @@ void	pb(t_stack *stack)
 	}
 	stack->b[0] = stack->a[0];
 	m = 0;
-	while (m < (size_t)stack->args && m < (size_t)stack->count_a)
+	while (m < (size_t)stack->count_a)
 	{
 		stack->a[m] = stack->a[m + 1];
+		printf("stack->a[m] = '%d'\n", stack->a[m]);
 		m++;
 	}
 	stack->count_a--;
