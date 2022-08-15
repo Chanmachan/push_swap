@@ -37,10 +37,11 @@ int	main(int argc, char **argv)
 
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
-	if (sorted(&stack) == 1)
+	if (sorted(&stack) == 0)
 	{
 		return (0);
 	}
+	check_args(&stack);
 	return (0);
 }
 
