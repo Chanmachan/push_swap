@@ -10,6 +10,8 @@ typedef struct s_stack
 	int args;
 	int	*a;
 	int	*b;
+	int	*bit_a;
+	int	*bit_b;
 	int count_a;
 	int count_b;
 } t_stack;
