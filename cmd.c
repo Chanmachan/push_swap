@@ -1,19 +1,7 @@
 #include "push_swap.h"
-#include <stdio.h>
 
-typedef struct s_stack
+/*void pb(t_stack *stack)
 {
-	int args;
-	int	*a;
-	int	*b;
-	int count_a;
-	int count_b;
-} t_stack;
-
-void pb(t_stack *stack)
-{
-	//そもそも要素が１、０の場合はこの条件に入らないようにする
-	/*if ()*/
 	size_t	n;
 	size_t	m;
 
@@ -38,8 +26,6 @@ void pb(t_stack *stack)
 
 void pa(t_stack *stack)
 {
-	//そもそも要素が１、０の場合はこの条件に入らないようにする
-	/*if ()*/
 	size_t	n;
 	size_t	m;
 
@@ -59,9 +45,9 @@ void pa(t_stack *stack)
 	stack->count_b--;
 	ft_printf("pa\n");
 	return ;
-}
+}*/
 
-void	sa(t_stack *stack)
+/*void	sa(t_stack *stack)
 {
 	int	tmp;
 
@@ -98,9 +84,9 @@ void	ss(t_stack *stack)
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
 	ft_printf("ss\n");
-}
+}*/
 
-void	ra(t_stack *stack)
+/*void	ra(t_stack *stack)
 {
 	int		tmp;
 	size_t	count;
@@ -166,9 +152,9 @@ void	rr(t_stack *stack)
 	stack->b[stack->count_b - 1] = tmp;
 	ft_printf("rr\n");
 	return ;
-}
+}*/
 
-void	rra(t_stack *stack)
+/*void	rra(t_stack *stack)
 {
 	int		tmp;
 	size_t	count;
@@ -223,20 +209,20 @@ void	rrr(t_stack *stack)
 	stack->b[0] = tmp;
 	ft_printf("rrr\n");
 	return ;
-}
+}*/
 
 void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
 	size_t	count;
 
-	stack->a = (int *) malloc(sizeof(int) * stack->args);
+	stack->a = ft_calloc(stack->args + 1, sizeof(int));
 	if (stack->a == NULL)
 	{
 		printf("malloc error\n");
 		return ;
 	}
-	stack->b = (int *) malloc(sizeof(int) * stack->args);
+	stack->b = ft_calloc(stack->args + 1, sizeof(int));
 	if (stack->b == NULL)
 	{
 		printf("malloc error\n");
