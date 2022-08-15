@@ -13,6 +13,12 @@ void	if_args_two(t_stack *stack)
  2 3 1 rra
  3 1 2 ra
  3 2 1 sa rra
+ 1 1 2
+ 1 2 2
+ 2 2 3
+ 2 3 3
+ 3 1 1
+ 1
  */
 
 void	if_args_three(t_stack *stack)
@@ -36,8 +42,13 @@ void	if_args_three(t_stack *stack)
 	return;
 }
 
+//void	if_others(t_stack *stack)
+//{
+//
+//}
+
 //基数ソートだと要素が２個とか３個のときに例外的に処理しないといけない
-void	check_args(t_stack *stack)
+void	sort_args(t_stack *stack)
 {
 	if (stack->args == 2)
 		if_args_two(stack);

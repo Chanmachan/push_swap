@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
 		return (0);
-	check_args(&stack);
+	sort_args(&stack);
 	n = 0;
 	while (stack.args--)
 	{

@@ -32,6 +32,6 @@ void	rrr(t_stack *stack);
 //sorted
 int	sorted(t_stack *stack);
 //sort
-void	check_args(t_stack *stack);
+void	sort_args(t_stack *stack);
 
 #endif
