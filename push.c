@@ -43,7 +43,6 @@ void	pb(t_stack *stack)
 	while (m < (size_t)stack->count_a)
 	{
 		stack->a[m] = stack->a[m + 1];
-		printf("stack->a[m] = '%d'\n", stack->a[m]);
 		m++;
 	}
 	stack->count_a--;
