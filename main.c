@@ -34,14 +34,20 @@ static void	set_start(t_stack *stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
+	size_t n;
 
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
-	{
 		return (0);
-	}
 	check_args(&stack);
+	n = 0;
+	while (stack.args--)
+	{
+		printf("\t%d | %d\n", stack.a[n], stack.b[n]);
+		n++;
+	}
+//	system("leaks -q a.out");
 	return (0);
 }
 
