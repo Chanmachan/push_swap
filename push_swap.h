@@ -29,5 +29,7 @@ void	pb(t_stack *stack);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
+//sorted
+int	sorted(t_stack *stack);
 
 #endif

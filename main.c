@@ -5,10 +5,10 @@ static void	init_argv(char **argv, t_stack *stack)
 	size_t	n;
 	size_t	count;
 
-	stack->a = ft_calloc(stack->args + 1, sizeof(int));
+	stack->a = ft_calloc(stack->args, sizeof(t_stack));
 	if (stack->a == NULL)
 		return ;
-	stack->b = ft_calloc(stack->args + 1, sizeof(int));
+	stack->b = ft_calloc(stack->args, sizeof(t_stack));
 	if (stack->b == NULL)
 		return ;
 	n = 0;
@@ -37,6 +37,14 @@ int	main(int argc, char **argv)
 
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
+	set_start(&stack, argc);
+	init_argv(argv, &stack);
+	if (sorted(&stack) == 1)
+	{
+		return (0);
+	}
+
+	return (0);
 }
 
 //check commands
