@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	init_argv(char **argv, t_stack *stack)
+static void	init_argv(char **argv, t_stack *stack)
 {
 	size_t	n;
 	size_t	count;
@@ -22,7 +22,7 @@ void	init_argv(char **argv, t_stack *stack)
 	return ;
 }
 
-void	set_start(t_stack *stack, int argc)
+static void	set_start(t_stack *stack, int argc)
 {
 	stack->args = argc - 1;
 	stack->a = NULL;
