@@ -9,10 +9,10 @@ static void	all_malloc(t_stack *stack)
 	if (stack->b == NULL)
 		return ;
 	stack->bit_a = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->a == NULL)
+	if (stack->bit_a == NULL)
 		return ;
 	stack->bit_b = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->b == NULL)
+	if (stack->bit_b == NULL)
 		return ;
 }
 
