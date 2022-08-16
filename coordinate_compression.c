@@ -4,28 +4,39 @@
 
 void	ccompression(t_stack *stack)
 {
-	int		*array;
 	int		tmp;
 	size_t	n;
+	size_t	i;
 
-	array = ft_calloc(stack->args, sizeof(t_stack));
-	n = 0;
-	while (n < stack->args)
+	i = 0;
+	while (i < (size_t)stack->args - 1)
 	{
-		if (array[n] > array[n + 1])
+		n = 0;
+		while (n < (size_t) stack->args - 1)
 		{
-			tmp = array[n];
-			array[n] = array[n + 1];
-			array[n + 1] = tmp;
+			if (stack->bit_a[n] > stack->bit_a[n + 1])
+			{
+				tmp = stack->bit_a[n];
+				stack->bit_a[n] = stack->bit_a[n + 1];
+				stack->bit_a[n + 1] = tmp;
+			}
+			n++;
 		}
-		n++;
+		i++;
 	}
 }
 
-int main(void)
-{
-	ccompression()
-}
+//int main(void)
+//{
+//	t_stack stack;
+//	stack.args = 3;
+//	size_t i = 0;
+//	while (i < (size_t)stack.args)
+//	{
+//		printf("%d\n", (ccompression(&stack))[i]);
+//		i++;
+//	}
+//}
 
 /*
 12 34 5 66 54 1
