@@ -42,9 +42,51 @@ void	if_args_three(t_stack *stack)
 	return;
 }
 
+//size_t	get_digit_binary(t_stack *stack)
+//{
+//	size_t	i;
+//
+//	i = 0;
+//	while (i < stack->args)
+//	{
+//
+//	}
+//}
+
 void	if_others(t_stack *stack)
 {
+	size_t	i;
+	size_t	j;
+	size_t	digit;
+	size_t	count;
+
 	ccompression(stack);
+	i = 1;
+	digit = 0;
+	while (i < (size_t)stack->args)
+	{
+		count = 0;
+		while (count < (size_t)stack->args)
+		{
+			if ((stack->a[0] >> digit & 1) == 1)
+			{
+				ra(stack);
+			}
+			else if
+			((stack->a[0] >> digit & 1) == 0)
+			{
+				pb(stack);
+			}
+			count++;
+		}
+		j = (size_t)stack->count_b;
+		while (j--)
+		{
+			pa(stack);
+		}
+		digit++;
+		i++;
+	}
 }
 
 //基数ソートだと要素が２個とか３個のときに例外的に処理しないといけない
