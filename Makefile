@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRCS = main.c push.c reverse_rotate.c rotate.c \
-		sort.c sorted.c swap.c
+		sort.c sorted.c swap.c coordinate_compression.c
 
 LIBFT = ./libft
 PRINTF = ./ft_printf
@@ -24,7 +24,7 @@ PRINTF_OBJS = ./ft_printf/ft_printf.o ./ft_printf/if_conv.o ./ft_printf/put_conv
  $(NAME) : $(OBJS)
 		$(MAKE) -C $(LIBFT)
 		$(MAKE) -C $(PRINTF)
-		ar rcs $(NAME) $(OBJS) $(LIBFT_OBJS) $(PRINTF_OBJS)
+		gcc $(CFLAGS) $(OBJS) $(LIBFT_OBJS) $(PRINTF_OBJS) -o $(NAME)
 
  all: $(NAME)
 
