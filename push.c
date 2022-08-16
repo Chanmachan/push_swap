@@ -21,7 +21,6 @@ void	pa(t_stack *stack)
 	}
 	stack->count_a++;
 	stack->count_b--;
-	ft_printf("b[m] %d\n", stack->b[m]);
 	ft_printf("pa\n");
 	return ;
 }
