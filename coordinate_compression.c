@@ -9,17 +9,17 @@ void	ccompression(t_stack *stack)
 	size_t	m;
 
 	n = 0;
-	while (n < (size_t)stack->count_a - 1)
+	while (n < (size_t)stack->count_a)
 	{
 		i = 0;
 		m = 0;
-		while (m < (size_t)stack->count_a - 1)
+		while (m < (size_t)stack->count_a)
 		{
 			if (stack->dup_a[n] > stack->dup_a[m])
 				i++;
 			m++;
 		}
-		stack->a[n] = i;
+		stack->a[n] = (int)i;
 		n++;
 	}
 }
