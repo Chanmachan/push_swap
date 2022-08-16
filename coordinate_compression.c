@@ -4,26 +4,9 @@
 
 void	ccompression(t_stack *stack)
 {
-	int		tmp;
-	size_t	n;
-	size_t	i;
+	int	*dup_a;
 
-	i = 0;
-	while (i < (size_t)stack->args - 1)
-	{
-		n = 0;
-		while (n < (size_t) stack->args - 1)
-		{
-			if (stack->bit_a[n] > stack->bit_a[n + 1])
-			{
-				tmp = stack->bit_a[n];
-				stack->bit_a[n] = stack->bit_a[n + 1];
-				stack->bit_a[n + 1] = tmp;
-			}
-			n++;
-		}
-		i++;
-	}
+	dup_a = ft_calloc()
 }
 
 //int main(void)
