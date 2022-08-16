@@ -10,8 +10,7 @@ typedef struct s_stack
 	int args;
 	int	*a;
 	int	*b;
-	int	*bit_a;
-	int	*bit_b;
+	int	*dup_a;
 	int count_a;
 	int count_b;
 } t_stack;
@@ -35,5 +34,7 @@ void	rrr(t_stack *stack);
 int	sorted(t_stack *stack);
 //sort
 void	sort_args(t_stack *stack);
+//coordinate_compression
+void	ccompression(t_stack *stack);
 
 #endif

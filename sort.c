@@ -44,7 +44,7 @@ void	if_args_three(t_stack *stack)
 
 void	if_others(t_stack *stack)
 {
-
+	ccompression(stack);
 }
 
 //基数ソートだと要素が２個とか３個のときに例外的に処理しないといけない
