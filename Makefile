@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRCS = main.c push.c reverse_rotate.c rotate.c \
-		sort.c sorted.c stack.c swap.c
+		sort.c sorted.c swap.c
 
 LIBFT = ./libft
 PRINTF = ./ft_printf
@@ -17,23 +17,27 @@ LIBFT_OBJS = ./libft/ft_atoi.o ./libft/ft_bzero.o ./libft/ft_isalnum.o ./libft/f
              	./libft/ft_strdup.o ./libft/ft_calloc.o ./libft/ft_strmapi.o ./libft/ft_striteri.o ./libft/ft_putchar_fd.o ./libft/ft_putstr_fd.o \
              	./libft/ft_putendl_fd.o ./libft/ft_putnbr_fd.o
 
+PRINTF_OBJS = ./ft_printf/ft_printf.o ./ft_printf/if_conv.o ./ft_printf/put_conv_base.o ./ft_printf/put_func.o
+
  CFLAGS = -Wall -Wextra -Werror
 
  $(NAME) : $(OBJS)
- 		$(MAKE) -C $(LIBFT)
- 		$(MAKE) -C $(PRINTF)
- 		ar rcs $(NAME) $(OBJS) $(LIBFT_OBJS)
+		$(MAKE) -C $(LIBFT)
+		$(MAKE) -C $(PRINTF)
+		ar rcs $(NAME) $(OBJS) $(LIBFT_OBJS) $(PRINTF_OBJS)
 
  all: $(NAME)
 
  clean:
- 		rm -rf $(OBJS)
- 		$(MAKE) -C $(LIBFT) clean
- 		$(MAKE) -C $(PRINTF) clean
+		rm -rf $(OBJS)
+		$(MAKE) -C $(LIBFT) clean
+		$(MAKE) -C $(PRINTF) clean
+
  fclean: clean
- 		rm -rf $(OBJS)
- 		$(MAKE) -C $(LIBFT) fclean
- 		$(MAKE) -C $(PRINTF) fclean
+		rm -rf $(OBJS)
+		$(MAKE) -C $(LIBFT) fclean
+		$(MAKE) -C $(PRINTF) fclean
+		rm -rf $(NAME)
 
  re: fclean all
 
