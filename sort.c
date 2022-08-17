@@ -1,26 +1,5 @@
 #include "push_swap.h"
 
-void	if_args_two(t_stack *stack)
-{
-	sa(stack);
-}
-
-//場合わけ
-/*
- 1 2 3 //sortedで完了済み
- 1 3 2 rra sa
- 2 1 3 sa
- 2 3 1 rra
- 3 1 2 ra
- 3 2 1 sa rra
- 1 1 2
- 1 2 2
- 2 2 3
- 2 3 3
- 3 1 1
- 1
- */
-
 void	if_args_three(t_stack *stack)
 {
 	if (stack->a[0] < stack->a[2] && stack->a[2] < stack->a[1])
@@ -39,18 +18,11 @@ void	if_args_three(t_stack *stack)
 		sa(stack);
 		rra(stack);
 	}
-	return;
 }
 
-//size_t	get_digit_binary(t_stack *stack)
+//void	if_args_four_five(t_stack *stack)
 //{
-//	size_t	i;
 //
-//	i = 0;
-//	while (i < stack->args)
-//	{
-//
-//	}
 //}
 
 void	if_others(t_stack *stack)
@@ -66,24 +38,17 @@ void	if_others(t_stack *stack)
 	while (i < (size_t)stack->args)
 	{
 		count = 0;
-		while (count < (size_t)stack->args)
+		while (count++ < (size_t)stack->args)
 		{
 			if ((stack->a[0] >> digit & 1) == 1)
-			{
 				ra(stack);
-			}
 			else if
 			((stack->a[0] >> digit & 1) == 0)
-			{
 				pb(stack);
-			}
-			count++;
 		}
 		j = (size_t)stack->count_b;
 		while (j--)
-		{
 			pa(stack);
-		}
 		digit++;
 		i++;
 	}
@@ -93,10 +58,13 @@ void	if_others(t_stack *stack)
 void	sort_args(t_stack *stack)
 {
 	if (stack->args == 2)
-		if_args_two(stack);
+		sa(stack);
 	else if (stack->args == 3)
 		if_args_three(stack);
-	if_others(stack);
+//	else if (stack->args == 4 || stack->args == 5)
+//		if_args_four_five(stack);
+	else
+		if_others(stack);
 }
 
 //バブルソートで座標圧縮をする
