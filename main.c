@@ -1,5 +1,25 @@
 #include "push_swap.h"
 
+static int	check_dup(t_stack *stack)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < (size_t)stack->args)
+	{
+		j = i;
+		while (j < (size_t)stack->args)
+		{
+			if (stack->a[i] == stack->a[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 static void	all_malloc(t_stack *stack)
 {
 	stack->a = ft_calloc(stack->args, sizeof(t_stack));
@@ -28,7 +48,6 @@ static void	init_argv(char **argv, t_stack *stack)
 		n++;
 		count--;
 	}
-	return ;
 }
 
 static void	set_start(t_stack *stack, int argc)
@@ -44,28 +63,30 @@ static void	set_start(t_stack *stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
-//	size_t n;
-//	int tmp;
+	size_t n;
+	int tmp;
 
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
 		return (0);
-//	tmp = stack.args;
-//	n = 0;
-//	while (tmp--)
-//	{
-//		printf("\t%d\n", stack.a[n]);
-//		n++;
-//	}
-//	printf("--------------\n");
+	if (check_dup(&stack) == 1)
+		return (ft_printf("Error\n"));
+	tmp = stack.args;
+	n = 0;
+	while (tmp--)
+	{
+		printf("\t%d\n", stack.a[n]);
+		n++;
+	}
+	printf("--------------\n");
 	sort_args(&stack);
-//	n = 0;
-//	while (stack.args--)
-//	{
-//		printf("\t%d\n", stack.a[n]);
-//		n++;
-//	}
+	n = 0;
+	while (stack.args--)
+	{
+		printf("\t%d\n", stack.a[n]);
+		n++;
+	}
 //	system("leaks -q a.out");
 	return (0);
 }
