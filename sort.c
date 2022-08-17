@@ -11,7 +11,7 @@ void	if_a_three(t_stack *stack)
 	}
 	else if (stack->a[1] < stack->a[0] && stack->a[0] < stack->a[2])
 		sa(stack);
-	else if (stack->a[3] < stack->a[0] && stack->a[0] < stack->a[1])
+	else if (stack->a[2] < stack->a[0] && stack->a[0] < stack->a[1])
 		rra(stack);
 	else if (stack->a[1] < stack->a[2] && stack->a[2] < stack->a[0])
 		ra(stack);
@@ -22,6 +22,37 @@ void	if_a_three(t_stack *stack)
 	}
 }
 
+/*
+2 1 0
+------------
+0 1 2 sb rrb
+0 2 1 rb
+1 0 2 rrb
+1 2 0 sb
+2 0 1 sb rb
+2 1 0 //ok
+ */
+
+void	if_b_three(t_stack *stack)
+{
+	if (stack->b[0] < stack->b[1] && stack->b[1] < stack->b[2])
+	{
+		sb(stack);
+		rrb(stack);
+	}
+	if (stack->b[0] < stack->b[2] && stack->b[2] < stack->b[1])
+		rb(stack);
+	if (stack->b[1] < stack->b[0] && stack->b[0] < stack->b[2])
+		rrb(stack);
+	if (stack->b[2] < stack->b[0] && stack->b[0] < stack->b[1])
+		sb(stack);
+	if (stack->b[1] < stack->b[2] && stack->b[2] < stack->b[0])
+	{
+		sb(stack);
+		rb(stack);
+	}
+}
+
 void	if_a_less_five(t_stack *stack)
 {
 	size_t	count;
@@ -29,7 +60,7 @@ void	if_a_less_five(t_stack *stack)
 	count = 0;
 	while (count < (size_t)stack->args)
 	{
-		if (stack->a[0] <= 3)
+		if (stack->a[0] <= 2)
 		{
 			pb(stack);
 		}
@@ -42,6 +73,7 @@ void	if_a_less_five(t_stack *stack)
 	if (stack->a[0] > stack->a[1])
 		sa(stack);
 	if_a_three(stack);
+	if_b_three(stack);
 	while (stack->count_b)
 	{
 		pa(stack);
@@ -55,7 +87,6 @@ void	if_others(t_stack *stack)
 	size_t	digit;
 	size_t	count;
 
-	ccompression(stack);
 	i = 1;
 	digit = 0;
 	while (i < (size_t)stack->args)
@@ -80,12 +111,15 @@ void	if_others(t_stack *stack)
 //基数ソートだと要素が２個とか３個のときに例外的に処理しないといけない
 void	sort_args(t_stack *stack)
 {
+	ccompression(stack);
 	if (stack->args == 2)
 		sa(stack);
 	else if (stack->args == 3)
 		if_a_three(stack);
 	else if (stack->args <= 6)
+	{
 		if_a_less_five(stack);
+	}
 	else
 		if_others(stack);
 }
