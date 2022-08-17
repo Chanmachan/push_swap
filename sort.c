@@ -1,7 +1,9 @@
 #include "push_swap.h"
 
-void	if_args_three(t_stack *stack)
+void	if_a_three(t_stack *stack)
 {
+	if (stack->count_a == 2)
+		return;
 	if (stack->a[0] < stack->a[2] && stack->a[2] < stack->a[1])
 	{
 		rra(stack);
@@ -20,10 +22,31 @@ void	if_args_three(t_stack *stack)
 	}
 }
 
-//void	if_args_four_five(t_stack *stack)
-//{
-//
-//}
+void	if_a_less_five(t_stack *stack)
+{
+	size_t	count;
+
+	count = 0;
+	while (count < (size_t)stack->args)
+	{
+		if (stack->a[0] <= 3)
+		{
+			pb(stack);
+		}
+		else
+		{
+			ra(stack);
+		}
+		count++;
+	}
+	if (stack->a[0] > stack->a[1])
+		sa(stack);
+	if_a_three(stack);
+	while (stack->count_b)
+	{
+		pa(stack);
+	}
+}
 
 void	if_others(t_stack *stack)
 {
@@ -60,9 +83,9 @@ void	sort_args(t_stack *stack)
 	if (stack->args == 2)
 		sa(stack);
 	else if (stack->args == 3)
-		if_args_three(stack);
-//	else if (stack->args == 4 || stack->args == 5)
-//		if_args_four_five(stack);
+		if_a_three(stack);
+	else if (stack->args <= 6)
+		if_a_less_five(stack);
 	else
 		if_others(stack);
 }
