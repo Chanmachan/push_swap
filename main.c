@@ -8,11 +8,13 @@ static int	check_dup(t_stack *stack)
 	i = 0;
 	while (i < (size_t)stack->args)
 	{
-		j = i;
+		j = i + 1;
 		while (j < (size_t)stack->args)
 		{
 			if (stack->a[i] == stack->a[j])
-				return (1);
+			{
+				exit_fail(stack);
+			}
 			j++;
 		}
 		i++;
@@ -43,8 +45,8 @@ static void	init_argv(char **argv, t_stack *stack)
 	count = stack->args;
 	while (count)
 	{
-		stack->a[n] = ft_atoi(argv[n + 1]);
-		stack->dup_a[n] = ft_atoi(argv[n + 1]);
+		stack->a[n] = atoi_plus(argv[n + 1], stack);
+		stack->dup_a[n] = atoi_plus(argv[n + 1], stack);
 		n++;
 		count--;
 	}
@@ -64,29 +66,30 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack;
 	size_t n;
-	int tmp;
+//	int tmp;
 
+	if (argc == 1)
+		return (0);
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
-		return (0);
-	if (check_dup(&stack) == 1)
-		return (ft_printf("Error\n"));
-	tmp = stack.args;
-	n = 0;
-	while (tmp--)
-	{
-		printf("\t%d\n", stack.a[n]);
-		n++;
-	}
-	printf("--------------\n");
+		exit (EXIT_SUCCESS);
+	check_dup(&stack);
+//	tmp = stack.args;
+//	n = 0;
+//	while (tmp--)
+//	{
+//		printf("\t%d\n", stack.a[n]);
+//		n++;
+//	}
+//	printf("--------------\n");
 	sort_args(&stack);
 	n = 0;
-	while (stack.args--)
-	{
-		printf("\t%d\n", stack.a[n]);
-		n++;
-	}
+//	while (stack.args--)
+//	{
+//		printf("\t%d\n", stack.a[n]);
+//		n++;
+//	}
 //	system("leaks -q a.out");
 	return (0);
 }
