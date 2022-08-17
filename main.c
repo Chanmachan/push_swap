@@ -65,7 +65,7 @@ static void	set_start(t_stack *stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
-	size_t n;
+//	size_t n;
 //	int tmp;
 
 	if (argc == 1)
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 //	}
 //	printf("--------------\n");
 	sort_args(&stack);
-	n = 0;
+//	n = 0;
 //	while (stack.args--)
 //	{
 //		printf("\t%d\n", stack.a[n]);
