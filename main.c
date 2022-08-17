@@ -44,46 +44,28 @@ static void	set_start(t_stack *stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
-	size_t n;
-	int tmp;
-	int tmp2;
-	int tmp3;
+//	size_t n;
+//	int tmp;
 
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
 		return (0);
-	tmp = stack.args;
-	tmp2 = stack.args;
-	tmp3 = stack.args;
-	n = 0;
-	while (stack.args--)
-	{
-		printf("\t%d | %d\n", stack.a[n], stack.b[n]);
-		n++;
-	}
-	printf("--------------\n");
-	n = 0;
-	while (tmp--)
-	{
-		printf("\t%d\n", stack.dup_a[n]);
-		n++;
-	}
-	printf("--------------\nstack->dup_a[n]\n");
-	n = 0;
+//	tmp = stack.args;
+//	n = 0;
+//	while (tmp--)
+//	{
+//		printf("\t%d\n", stack.a[n]);
+//		n++;
+//	}
+//	printf("--------------\n");
 	sort_args(&stack);
-	while (tmp2--)
-	{
-		printf("\t%d\n", stack.dup_a[n]);
-		n++;
-	}
-	printf("--------------\nstack->a[n]\n");
-	n = 0;
-	while (tmp3--)
-	{
-		printf("\t%d\n", stack.a[n]);
-		n++;
-	}
+//	n = 0;
+//	while (stack.args--)
+//	{
+//		printf("\t%d\n", stack.a[n]);
+//		n++;
+//	}
 //	system("leaks -q a.out");
 	return (0);
 }
