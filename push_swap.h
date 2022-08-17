@@ -36,5 +36,9 @@ int	sorted(t_stack *stack);
 void	sort_args(t_stack *stack);
 //coordinate_compression
 void	ccompression(t_stack *stack);
+//atoi_plus
+int atoi_plus(const char *str, t_stack *stack);
+//exit_fail
+void	exit_fail(t_stack *stack);
 
 #endif
