@@ -5,8 +5,6 @@ static void	reverse_rotate_a(t_stack *stack)
 	int		tmp;
 	size_t	count;
 
-	if (stack->count_a < 2)
-		return;
 	count = stack->count_a;
 	tmp = stack->a[stack->count_a - 1];
 	while (--count)
@@ -21,8 +19,6 @@ static void	reverse_rotate_b(t_stack *stack)
 	int		tmp;
 	size_t	count;
 
-	if (stack->count_b < 2)
-		return;
 	count = stack->count_b;
 	tmp = stack->b[stack->count_b - 1];
 	while (--count)
@@ -34,8 +30,6 @@ static void	reverse_rotate_b(t_stack *stack)
 
 void	rra(t_stack *stack)
 {
-	if (stack->count_a < 2)
-		return;
 	reverse_rotate_a(stack);
 	ft_printf("rra\n");
 	return ;
@@ -43,8 +37,6 @@ void	rra(t_stack *stack)
 
 void	rrb(t_stack *stack)
 {
-	if (stack->count_b < 2)
-		return;
 	reverse_rotate_b(stack);
 	ft_printf("rrb\n");
 	return ;
