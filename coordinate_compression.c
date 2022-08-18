@@ -22,6 +22,7 @@ void	ccompression(t_stack *stack)
 		stack->a[n] = (int)i;
 		n++;
 	}
+	free(stack->dup_a);
 }
 
 //int main(void)
