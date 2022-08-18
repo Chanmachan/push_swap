@@ -32,22 +32,19 @@ void	rra(t_stack *stack)
 {
 	reverse_rotate_a(stack);
 	ft_printf("rra\n");
-	return ;
 }
 
 void	rrb(t_stack *stack)
 {
 	reverse_rotate_b(stack);
 	ft_printf("rrb\n");
-	return ;
 }
 
 void	rrr(t_stack *stack)
 {
 	if (stack->count_a < 2 && stack->count_b < 2)
-		return;
+		return ;
 	reverse_rotate_a(stack);
 	reverse_rotate_b(stack);
 	ft_printf("rrr\n");
-	return ;
 }
