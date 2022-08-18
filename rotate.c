@@ -53,5 +53,4 @@ void	rr(t_stack *stack)
 	rotate_a(stack);
 	rotate_b(stack);
 	ft_printf("rr\n");
-	return ;
 }
