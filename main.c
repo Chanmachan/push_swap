@@ -25,14 +25,10 @@ static int	check_dup(t_stack *stack)
 static void	all_malloc(t_stack *stack)
 {
 	stack->a = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->a == NULL)
-		return ;
 	stack->b = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->b == NULL)
-		return ;
 	stack->dup_a = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->dup_a == NULL)
-		return ;
+	if (stack->a == NULL || stack->b == NULL || stack->dup_a == NULL)
+		exit_fail(stack);
 }
 
 static void	init_argv(char **argv, t_stack *stack)
@@ -71,7 +67,7 @@ int	main(int argc, char **argv)
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
 	if (sorted(&stack) == 0)
-		exit (EXIT_SUCCESS);
+		exit_success(&stack);
 	check_dup(&stack);
 	sort_args(&stack);
 	return (0);
