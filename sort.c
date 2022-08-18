@@ -3,7 +3,7 @@
 void	if_a_three(t_stack *stack)
 {
 	if (stack->count_a == 2)
-		return;
+		return ;
 	if (stack->a[0] < stack->a[2] && stack->a[2] < stack->a[1])
 	{
 		rra(stack);
@@ -21,17 +21,6 @@ void	if_a_three(t_stack *stack)
 		rra(stack);
 	}
 }
-
-/*
-2 1 0
-------------
-0 1 2 sb rrb
-0 2 1 rb
-1 0 2 rrb
-1 2 0 sb
-2 0 1 sb rb
-2 1 0 //ok
- */
 
 void	if_b_three(t_stack *stack)
 {
@@ -89,7 +78,7 @@ void	if_others(t_stack *stack)
 
 	i = 0;
 	digit = 0;
-	while (i < (size_t)stack->args)
+	while (i++ < (size_t)stack->args)
 	{
 		count = 0;
 		while (count++ < (size_t)stack->args)
@@ -106,11 +95,9 @@ void	if_others(t_stack *stack)
 		if (sorted(stack) == 0)
 			exit (EXIT_SUCCESS);
 		digit++;
-		i++;
 	}
 }
 
-//基数ソートだと要素が２個とか３個のときに例外的に処理しないといけない
 void	sort_args(t_stack *stack)
 {
 	ccompression(stack);
@@ -125,13 +112,3 @@ void	sort_args(t_stack *stack)
 	else
 		if_others(stack);
 }
-
-//バブルソートで座標圧縮をする
-//座標圧縮をして二進数表記する
-//二進数の一桁目が'1'だった場合raで下に持っていく
-//'0'がきたらpb
-//分け終わったらpaで元に戻す
-//次の桁に進んで'0'だったらpb
-//'1'だったらraを繰り返す
-
-
