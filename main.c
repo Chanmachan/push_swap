@@ -65,8 +65,6 @@ static void	set_start(t_stack *stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
-//	size_t n;
-//	int tmp;
 
 	if (argc == 1)
 		return (0);
@@ -75,24 +73,43 @@ int	main(int argc, char **argv)
 	if (sorted(&stack) == 0)
 		exit (EXIT_SUCCESS);
 	check_dup(&stack);
-//	tmp = stack.args;
-//	n = 0;
-//	while (tmp--)
-//	{
-//		printf("\t%d\n", stack.a[n]);
-//		n++;
-//	}
-//	printf("--------------\n");
 	sort_args(&stack);
-//	n = 0;
-//	while (stack.args--)
-//	{
-//		printf("\t%d\n", stack.a[n]);
-//		n++;
-//	}
-//	system("leaks -q a.out");
 	return (0);
 }
+
+//	system("leaks -q a.out");
+
+//int	main(int argc, char **argv)
+//{
+//	t_stack	stack;
+////	size_t n;
+////	int tmp;
+//
+//	if (argc == 1)
+//		return (0);
+//	set_start(&stack, argc);
+//	init_argv(argv, &stack);
+//	if (sorted(&stack) == 0)
+//		exit (EXIT_SUCCESS);
+//	check_dup(&stack);
+////	tmp = stack.args;
+////	n = 0;
+////	while (tmp--)
+////	{
+////		printf("\t%d\n", stack.a[n]);
+////		n++;
+////	}
+////	printf("--------------\n");
+//	sort_args(&stack);
+////	n = 0;
+////	while (stack.args--)
+////	{
+////		printf("\ta[%zu] = %d\n", n, stack.a[n]);
+////		n++;
+////	}
+////	system("leaks -q a.out");
+//	return (0);
+//}
 
 //check commands
 /*
