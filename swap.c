@@ -43,7 +43,7 @@ void	sb(t_stack *stack)
 void	ss(t_stack *stack)
 {
 	if (stack->count_a < 2 && stack->count_b < 2)
-		return;
+		return ;
 	swap_a(stack);
 	swap_b(stack);
 	ft_printf("ss\n");
