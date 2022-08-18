@@ -87,7 +87,7 @@ void	if_others(t_stack *stack)
 	size_t	digit;
 	size_t	count;
 
-	i = 1;
+	i = 0;
 	digit = 0;
 	while (i < (size_t)stack->args)
 	{
@@ -103,6 +103,8 @@ void	if_others(t_stack *stack)
 		j = (size_t)stack->count_b;
 		while (j--)
 			pa(stack);
+		if (sorted(stack) == 0)
+			exit (EXIT_SUCCESS);
 		digit++;
 		i++;
 	}
