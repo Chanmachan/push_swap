@@ -6,7 +6,7 @@ void	pa(t_stack *stack)
 	size_t	m;
 
 	if (stack->count_b == 0)
-		return;
+		return ;
 	n = (size_t)stack->count_a;
 	while (n--)
 	{
@@ -31,7 +31,7 @@ void	pb(t_stack *stack)
 	size_t	m;
 
 	if (stack->count_a == 0)
-		return;
+		return ;
 	n = (size_t)stack->count_b;
 	while (n--)
 	{
