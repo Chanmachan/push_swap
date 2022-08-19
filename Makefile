@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRCS = main.c push.c reverse_rotate.c rotate.c sort.c sorted.c \
-		swap.c coordinate_compression.c exit_fail.c atoi_plus.c
+		swap.c coordinate_compression.c exit.c atoi_plus.c
 
 LIBFT = ./libft
 PRINTF = ./ft_printf
