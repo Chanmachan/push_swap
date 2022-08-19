@@ -71,9 +71,9 @@ int	main(int argc, char **argv)
 		return (0);
 	set_start(&stack, argc);
 	init_argv(argv, &stack);
+	check_dup(&stack);
 	if (sorted(&stack) == 0)
 		exit_success(&stack);
-	check_dup(&stack);
 	sort_args(&stack);
 	exit_success(&stack);
 }
