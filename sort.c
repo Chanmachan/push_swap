@@ -93,7 +93,7 @@ void	if_others(t_stack *stack)
 		while (j--)
 			pa(stack);
 		if (sorted(stack) == 0)
-			exit (EXIT_SUCCESS);
+			return ;
 		digit++;
 	}
 }
