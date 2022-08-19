@@ -24,7 +24,7 @@ $(NAME) : $(OBJS)
 all: $(NAME)
 
 clean:
-		rm -rf $(OBJS)
+		rm -f $(OBJS)
 		$(MAKE) -C $(LIBFT) clean
 		$(MAKE) -C $(PRINTF) clean
 
@@ -32,7 +32,7 @@ fclean: clean
 		rm -rf $(OBJS)
 		$(MAKE) -C $(LIBFT) fclean
 		$(MAKE) -C $(PRINTF) fclean
-		rm -rf $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
