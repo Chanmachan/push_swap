@@ -28,7 +28,6 @@ void	sa(t_stack *stack)
 		return ;
 	swap_a(stack);
 	ft_printf("sa\n");
-	return ;
 }
 
 void	sb(t_stack *stack)
@@ -37,7 +36,6 @@ void	sb(t_stack *stack)
 		return ;
 	swap_b(stack);
 	ft_printf("sb\n");
-	return ;
 }
 
 void	ss(t_stack *stack)
