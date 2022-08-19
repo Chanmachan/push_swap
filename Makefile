@@ -17,7 +17,6 @@ PRINTF_ARC = ./ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-		$(MAKE) -C $(LIBFT)
 		$(MAKE) -C $(PRINTF)
 		cc $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(PRINTF_ARC) -o $(NAME)
 
