@@ -15,7 +15,6 @@ static void	rotate_a(t_stack *stack)
 		n++;
 	}
 	stack->a[stack->count_a - 1] = tmp;
-	return ;
 }
 
 static void	rotate_b(t_stack *stack)
@@ -33,7 +32,6 @@ static void	rotate_b(t_stack *stack)
 		n++;
 	}
 	stack->b[stack->count_b - 1] = tmp;
-	return ;
 }
 
 void	ra(t_stack *stack)
