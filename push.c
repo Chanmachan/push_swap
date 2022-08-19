@@ -22,7 +22,6 @@ void	pa(t_stack *stack)
 	stack->count_a++;
 	stack->count_b--;
 	ft_printf("pa\n");
-	return ;
 }
 
 void	pb(t_stack *stack)
@@ -47,5 +46,4 @@ void	pb(t_stack *stack)
 	stack->count_a--;
 	stack->count_b++;
 	ft_printf("pb\n");
-	return ;
 }
