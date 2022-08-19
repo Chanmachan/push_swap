@@ -14,26 +14,26 @@ LIBFT_ARC = ./libft/libft.a
 
 PRINTF_ARC = ./ft_printf/libftprintf.a
 
- CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
- $(NAME) : $(OBJS)
+$(NAME) : $(OBJS)
 		$(MAKE) -C $(LIBFT)
 		$(MAKE) -C $(PRINTF)
-		gcc $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(PRINTF_ARC) -o $(NAME)
+		cc $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(PRINTF_ARC) -o $(NAME)
 
- all: $(NAME)
+all: $(NAME)
 
- clean:
+clean:
 		rm -rf $(OBJS)
 		$(MAKE) -C $(LIBFT) clean
 		$(MAKE) -C $(PRINTF) clean
 
- fclean: clean
+fclean: clean
 		rm -rf $(OBJS)
 		$(MAKE) -C $(LIBFT) fclean
 		$(MAKE) -C $(PRINTF) fclean
 		rm -rf $(NAME)
 
- re: fclean all
+re: fclean all
 
- .PHONY: all clean fclean re
+.PHONY: all clean fclean re
