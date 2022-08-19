@@ -58,10 +58,10 @@ static void	set_start(t_stack *stack, int argc)
 	stack->count_b = 0;
 }
 
-__attribute__((destructor))
-static void destructor() {
-	system("leaks -q push_swap");
-}
+//__attribute__((destructor))
+//static void destructor() {
+//	system("leaks -q push_swap");
+//}
 
 int	main(int argc, char **argv)
 {
