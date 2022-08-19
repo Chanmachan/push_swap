@@ -106,9 +106,7 @@ void	sort_args(t_stack *stack)
 	else if (stack->args == 3)
 		if_a_three(stack);
 	else if (stack->args <= 6)
-	{
 		if_a_less_five(stack);
-	}
 	else
 		if_others(stack);
 }
