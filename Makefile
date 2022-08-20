@@ -21,6 +21,7 @@ LIBFT_ARC = ./libft/libft.a
 PRINTF_ARC = ./ft_printf/libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
+#-MP -MMD
 
 all: $(NAME)
 
