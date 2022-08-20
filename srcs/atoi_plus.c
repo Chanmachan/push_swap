@@ -1,5 +1,28 @@
 #include "push_swap.h"
 
+size_t	strlen_plus(const char *str, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i);
+}
+
+int	check_zero(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str[i] == '0' && strlen_plus(str, ' ') > 1)
+	{
+		ft_printf("Error\n");
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
+
 static int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\n' || c == '\r' || \
@@ -25,6 +48,7 @@ int	atoi_plus(const char *str, t_stack *stack)
 			sign = -1;
 		i++;
 	}
+	check_zero(str);
 	if (!ft_isdigit(str[i]))
 		exit_fail(stack);
 	while (ft_isdigit(str[i]))
