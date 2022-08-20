@@ -1,0 +1,11 @@
+*.out
+
+push_swap_*
+
+.DS_Store
+.idea/
+CMakeLists.txt
+cmake-build-debug/
+tmp.c
+
+*.o

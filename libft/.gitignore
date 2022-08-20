@@ -7,3 +7,5 @@ libft-unit-test
 *.DS_Store
 
 *.idea
+
+*.o

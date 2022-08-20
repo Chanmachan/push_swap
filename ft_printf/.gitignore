@@ -10,4 +10,6 @@ printfTester
 
 *.out
 
+*.o
+
 cmake-build-debug
