@@ -31,6 +31,16 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
+int	check_sign(char c)
+{
+	int		sign;
+
+	sign = 1;
+	if (c == '-')
+		sign = -1;
+	return (sign);
+}
+
 int	atoi_plus(const char *str, t_stack *stack)
 {
 	long long	ret;
@@ -43,11 +53,7 @@ int	atoi_plus(const char *str, t_stack *stack)
 	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
+		sign = check_sign(str[i++]);
 	check_zero(str);
 	if (!ft_isdigit(str[i]))
 		exit_fail(stack);
