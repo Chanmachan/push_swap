@@ -25,10 +25,21 @@ static int	check_dup(t_stack *stack)
 static void	all_malloc(t_stack *stack)
 {
 	stack->a = ft_calloc(stack->args, sizeof(t_stack));
+	if (stack->a == NULL)
+		exit(EXIT_FAILURE);
 	stack->b = ft_calloc(stack->args, sizeof(t_stack));
+	if (stack->b == NULL)
+	{
+		free(stack->a);
+		exit(EXIT_FAILURE);
+	}
 	stack->dup_a = ft_calloc(stack->args, sizeof(t_stack));
-	if (stack->a == NULL || stack->b == NULL || stack->dup_a == NULL)
-		exit_fail(stack);
+	if (stack->dup_a == NULL)
+	{
+		free(stack->a);
+		free(stack->b);
+		exit(EXIT_FAILURE);
+	}
 }
 
 static void	init_argv(char **argv, t_stack *stack)
