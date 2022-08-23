@@ -1,7 +1,7 @@
 # push_swap
 
-started from August 20 2022
+started from August 9 2022
 
-completed on
+completed on August 23
 
 Passed on
