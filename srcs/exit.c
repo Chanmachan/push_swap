@@ -2,12 +2,8 @@
 
 void	all_free(t_stack *stack)
 {
-	if (stack->a != NULL)
-		free(stack->a);
-	if (stack->b != NULL)
-		free(stack->b);
-	if (stack->dup_a != NULL)
-		free(stack->dup_a);
+	free(stack->a);
+	free(stack->b);
 }
 
 void	exit_fail(t_stack *stack)
