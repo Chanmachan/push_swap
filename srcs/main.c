@@ -13,6 +13,7 @@ static int	check_dup(t_stack *stack)
 		{
 			if (stack->a[i] == stack->a[j])
 			{
+				free(stack->dup_a);
 				exit_fail(stack);
 			}
 			j++;
@@ -84,7 +85,10 @@ int	main(int argc, char **argv)
 	init_argv(argv, &stack);
 	check_dup(&stack);
 	if (sorted(&stack) == 0)
+	{
+		free(stack.dup_a);
 		exit_success(&stack);
+	}
 	sort_args(&stack);
 	exit_success(&stack);
 }

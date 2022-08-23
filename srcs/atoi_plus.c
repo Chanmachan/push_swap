@@ -10,7 +10,7 @@ size_t	strlen_plus(const char *str, int c)
 	return (i);
 }
 
-int	check_zero(const char *str)
+int	check_zero(const char *str, t_stack *stack)
 {
 	size_t	i;
 
@@ -18,7 +18,8 @@ int	check_zero(const char *str)
 	if (str[i] == '0' && strlen_plus(str, ' ') > 1)
 	{
 		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
+		free(stack->dup_a);
+		exit_fail(stack);
 	}
 	return (0);
 }
@@ -54,15 +55,15 @@ int	atoi_plus(const char *str, t_stack *stack)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		sign = check_sign(str[i++]);
-	check_zero(str);
+	check_zero(str, stack);
 	if (!ft_isdigit(str[i]))
 		exit_fail(stack);
 	while (ft_isdigit(str[i]))
-	{
-		ret = (ret * 10) + sign * (str[i] - '0');
-		i++;
-	}
+		ret = (ret * 10) + sign * (str[i++] - '0');
 	if (ret > INT_MAX || ret < INT_MIN)
+	{
+		free(stack->dup_a);
 		exit_fail(stack);
+	}
 	return ((int)ret);
 }
