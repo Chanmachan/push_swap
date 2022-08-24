@@ -42,7 +42,7 @@ void	if_b_three(t_stack *stack)
 	}
 }
 
-void	if_a_less_five(t_stack *stack)
+void	if_a_less_six(t_stack *stack)
 {
 	size_t	count;
 
@@ -106,7 +106,7 @@ void	sort_args(t_stack *stack)
 	else if (stack->args == 3)
 		if_a_three(stack);
 	else if (stack->args <= 6)
-		if_a_less_five(stack);
+		if_a_less_six(stack);
 	else
 		if_others(stack);
 }
