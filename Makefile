@@ -35,11 +35,9 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 
 clean:
 		$(RM) -r $(OBJS_DIR)
-		$(MAKE) -C $(LIBFT) clean
 		$(MAKE) -C $(PRINTF) clean
 
 fclean: clean
-		$(MAKE) -C $(LIBFT) fclean
 		$(MAKE) -C $(PRINTF) fclean
 		$(RM) $(NAME)
 
