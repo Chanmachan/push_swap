@@ -9,16 +9,15 @@ SRCS_FILE = main.c push.c reverse_rotate.c rotate.c sort.c sorted.c \
 
 SRCS = $(addprefix $(SRCS_DIR)/,$(SRCS_FILE))
 
-LIBFT = ./libft
-PRINTF = ./ft_printf
+PRINTF_DIR = ./ft_printf
 
-INCLUDES = push_swap.h
+INCLUDES = ./includes/push_swap.h
 
 OBJS = $(patsubst $(SRCS_DIR)/%, $(OBJS_DIR)/%, $(SRCS:.c=.o))
 
-LIBFT_ARC = ./libft/libft.a
+LIBFT = ./libft/libft.a
 
-PRINTF_ARC = ./ft_printf/libftprintf.a
+LIBPRINTF = ./ft_printf/libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 #-MP -MMD
@@ -26,8 +25,8 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-		$(MAKE) -C $(PRINTF)
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(PRINTF_ARC) -o $(NAME)
+		$(MAKE) -C $(PRINTF_DIR)
+		$(CC) $(CFLAGS) $^ -o $(NAME) $(LIBPRINTF) $(LIBFT)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 		mkdir -p $(OBJS_DIR)
@@ -35,10 +34,10 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 
 clean:
 		$(RM) -r $(OBJS_DIR)
-		$(MAKE) -C $(PRINTF) clean
+		$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
-		$(MAKE) -C $(PRINTF) fclean
+		$(MAKE) -C $(PRINTF_DIR) fclean
 		$(RM) $(NAME)
 
 re: fclean all
