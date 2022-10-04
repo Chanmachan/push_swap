@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 size_t	strlen_plus(const char *str, int c)
 {
