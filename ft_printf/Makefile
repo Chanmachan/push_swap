@@ -14,7 +14,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 		$(MAKE) -C $(LIBFT)
-		ar rcs $(NAME) $(OBJS) $(LIBFT_ARC)
+		ar rcs $(NAME) $(OBJS)
 
 all:	$(NAME)
 
